@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+</head>
+
+<div>
+    <h1>Speed PREDICTOR</h1>
+
+    <form action="/predict" method="POST">
+        <div>
+            <p>Speed</p>
+            <input type="text" name = "speed" id="speed">
+        </div>
+        
+        <div>
+            <p>Power</p>
+            <input type="text" name = "power" id="power">
+        </div>
+
+        <input type="submit" value="Predict">
+    </form>
+    <h2>Predicted: {{pred}}</h2>
+</div>

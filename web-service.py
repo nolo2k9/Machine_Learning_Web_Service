@@ -1,29 +1,44 @@
 
 # adapted from: https://flask.palletsprojects.com/en/1.1.x/quickstart/#a-minimal-application
 
-from flask import Flask, request, jsonify # loading in Flask
-#from ludwig.api import LudwigModel # loading in Ludwig
-import pandas as pd # loading pandas for reading csv
+from flask import Flask, request, jsonify, render_template
+import tensorflow as tf
+import numpy as np
+from tensorflow.keras import backend
 from tensorflow.keras.models import load_model
 
-# creating a Flask application
 app = Flask(__name__)
 
-# Load the model
-model = load_model("model.h5")
-# creating predict url and only allowing post requests.
-@app.route('/pred', methods=['POST'])
+
+@app.before_first_request
+def load_model_to_app():
+    app.predictor = load_model('model.h5')
+
+
+@app.route('/')
+def index():
+    return render_template('index.html', pred=0)
+
+
+@app.route('/predict', methods=['POST'])
 def predict():
-    # Get data from Post request
-    data = request.get_json()
-    # Make prediction
-    df = pd.DataFrame([str(data['text'])], columns=['content'])
-    print(df.head())
-    # making predictions
-    pred = model.predict(dataset=df, data_format='df')
-    print(pred)
-    # returning the predictions as json
-    return jsonify(pred['airline_sentiment_predictions'][0])
+    data = [request.form['speed'],
+            request.form['power']]
+
+    data = np.array([np.asarray(data, dtype=float)])
+
+    predictions = app.predictor.predict(data)
+    print('INFO Predictions: {}'.format(predictions))
+
+    class_ = np.where(predictions == np.amax(predictions, axis=1))[1][0]
+
+    return render_template('index.html', pred=class_)
+
+
+def main():
+    """Run the app."""
+    app.run(host='0.0.0.0', port=8000, debug=False)  # nosec
+
 
 if __name__ == '__main__':
-    app.run(port=3020, debug=True)
+    main()
