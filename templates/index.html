@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">      
+</head>
+<body>
+
+    <div>
+         <h1>Speed PREDICTOR2</h1>
+
+                <form>
+                    <div>
+                        <p>Speeds</p>
+                        <input type="text" name = "speed" id="speed">
+                    </div>
+                    <button id='submit-btn'>Predict</button>
+                <p id = 's'></p>
+                </form>
+    </div>
+
+            <script>
+
+                    // Example POST method implementation:
+                async function postData(error) 
+                {
+                    //stick on the same page
+                    error.preventDefault();
+                    
+                    const speed = document.getElementById('speed').value
+                // Default options are marked with *
+                const response = await fetch("/predict", {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: JSON.stringify({speed}) // body data type must match "Content-Type" header
+                });
+
+                var getres = await response.json();
+                document.getElementById('s').innerHTML=getres.predict[0];
+                
+                //edit so that evrytime the value changes need to get the new value"
+                }
+                document.getElementById("submit-btn").addEventListener("click", postData);
+            </script>
+    </body>
+</html>
