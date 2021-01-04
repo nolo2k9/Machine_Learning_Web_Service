@@ -11,7 +11,7 @@
 
                 <form>
                     <div>
-                        <p>Speeds</p>
+                        <p>Enter Speed Value</p>
                         <input type="text" name = "speed" id="speed">
                     </div>
                     <button id='submit-btn'>Predict</button>
@@ -30,10 +30,10 @@
                     const speed = document.getElementById('speed').value
                 // Default options are marked with *
                 const response = await fetch("/predict", {
-                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    method: 'POST', 
                     headers: {
                     'Content-Type': 'application/json'
-                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                    
                     },
                     body: JSON.stringify({speed}) // body data type must match "Content-Type" header
                 });
