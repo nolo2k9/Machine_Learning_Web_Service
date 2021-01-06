@@ -38,20 +38,21 @@ python web-service.py
 
 ### How to run Dockerfile
 - When Docker container has been created run: 
-- **Run docker image: **docker run web-service
+- **Run docker image:** docker run web-service
 ***
 **A bit about Docker:** https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=nemea&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAiAudD_BRBXEiwAudakX0q0RQDaFM5vvasyx5Y80I_4oBsdLEM-ZHQ7J-vT7oz4INmMO6ZBehoCEaoQAvD_BwE
 ***
 
 ### Packages used to train model
-- tensorflow [Markdown][2]
-- tensorflow.keras.models[Markdown][3]
-- tensorflow.keras.layers[Markdown][4]
-- tensorflow.python.keras[Markdown][5]
-- numpy[Markdown][6]
-- pandas[Markdown][7]
-- sklearn[Markdown][8]
-- matplotlib[Markdown][9]
+- tensorflow [Tensorflow][2]
+- tensorflow.keras.models [keras models][3]
+- tensorflow.keras.layers [keras layers][4]
+- tensorflow.python.keras [model datasets][5]
+- numpy [Numpy][6]
+- pandas [Pandas][7]
+- sklearn [Sklearn][8]
+- matplotlib [Mathplotlib][9]
+- Jupyter Notebook [Jupyter Notebook][11]
 
 
 ### Packages for web-service
@@ -63,9 +64,19 @@ python web-service.py
 
 
 ### References
-This is a guide on Markdown [Markdown][1].
+[1] https://markdown-guide.readthedocs.io/en/latest/basics.html 
+[2] https://www.tensorflow.org/
+[3] https://www.tensorflow.org/guide/keras/sequential_model
+[4] https://www.tensorflow.org/api_docs/python/tf/keras/layers/Layer
+[5] https://www.tensorflow.org/resources/models-datasets
+[6] https://numpy.org/
+[7] https://pandas.pydata.org/
+[8] https://scikit-learn.org/stable/
+[9] https://matplotlib.org/
+[10] https://flask.palletsprojects.com/en/1.1.x/
+[11] https://jupyter.org/
 
-[1]: http://en.wikipedia.org/wiki/Markdown 
+[1]: https://markdown-guide.readthedocs.io/en/latest/basics.html 
 [2]: https://www.tensorflow.org/
 [3]: https://www.tensorflow.org/guide/keras/sequential_model
 [4]: https://www.tensorflow.org/api_docs/python/tf/keras/layers/Layer
@@ -75,5 +86,6 @@ This is a guide on Markdown [Markdown][1].
 [8]: https://scikit-learn.org/stable/
 [9]: https://matplotlib.org/
 [10]: https://flask.palletsprojects.com/en/1.1.x/
+[11]: https://jupyter.org/
 
 
