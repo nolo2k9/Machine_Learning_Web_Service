@@ -70,27 +70,60 @@ python web-service.py
 
 
 ### References
+Mardown guide:
+<br />
 [1] https://markdown-guide.readthedocs.io/en/latest/basics.html 
+<br />
+<br />
+Tensorflow documentation:
 <br />
 [2] https://www.tensorflow.org/
 <br />
+<br />
+Tensorflow sequential model documentation:
+<br />
 [3] https://www.tensorflow.org/guide/keras/sequential_model
+<br />
+<br />
+Keras layers documentation:
 <br />
 [4] https://www.tensorflow.org/api_docs/python/tf/keras/layers/Layer
 <br />
+<br />
+Tensorflow models documentation:
+<br />
 [5] https://www.tensorflow.org/resources/models-datasets
+<br />
+<br />
+Numpy documentation:
 <br />
 [6] https://numpy.org/
 <br />
+<br />
+Pandas documentation:
+<br />
 [7] https://pandas.pydata.org/
+<br />
+<br />
+Scikit-learn documentation:
 <br />
 [8] https://scikit-learn.org/stable/
 <br />
+<br />
+Mathplotlib documentation:
+<br />
 [9] https://matplotlib.org/
+<br />
+<br />
+Flask documentation:
 <br />
 [10] https://flask.palletsprojects.com/en/1.1.x/
 <br />
+<br />
+Juputer Notebook documentation:
+<br />
 [11] https://jupyter.org/
+<br />
 
 [1]: https://markdown-guide.readthedocs.io/en/latest/basics.html 
 [2]: https://www.tensorflow.org/
