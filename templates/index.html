@@ -1,50 +1,101 @@
-<!doctype html>
+<!-- Adapted from: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch-->
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">      
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <style type="text/css">
+ 
+        h1{
+          color: gold;
+          text-align:center;
+          font: 1em Helvetica;
+        }
+        h2{
+          color: gold;
+          text-align:center;
+          font: 1em Helvetica;
+        }
+        h4{
+          color: gold;
+          text-align:center;
+          font: 1em Helvetica;
+        }
+        p{
 
+        text-align:center
+
+        }
+        input[type=text] {
+            text-align:center;
+            padding: 12px 20px;
+            margin: 8px 10;
+            box-sizing: border-box;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        button{
+            background-color: red;
+            color: white;
+            text-align:center;
+            padding: 12px 0px;
+            margin: auto;
+            box-sizing: border-box;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            border-radius: 12px;
+  
+        }
+      </style>
+  </head>
+  <body style="background-color:#F8F8FF">
     <div>
-         <h1>Predict wind power</h1>
+        <!-- Header-->
+      <h1>Predict wind power</h1>
 
-                <form>
-                    <div>
-                        <p>Enter Speed Value</p>
-                        <input type="text" name = "speed" id="speed">
-                    </div>
-                    <button id='submit-btn'>Predict</button>
-                
-                    <b><p>Predicted wind power:</p></b> <p id = 's'></p>
-                </form>
+      <form>
+        <div >
+             <!-- Info-->
+          <h4>Enter a speed value to get power predictions</h4>
+             <!--Input value name and type-->
+          <input type="text" name="speed" id="speed" />
+        </div>
+         <!-- Submit button-->
+        <button id="submit-btn">Predict</button>
+
+        <h2>Predicted wind power</h2>
+         <!-- Output predictions-->
+        <p id="s"></p>
+      </form>
     </div>
 
-            <script>
-
-                    // Example POST method implementation:
-                async function postData(error) 
-                {
-                    //stick on the same page
-                    error.preventDefault();
-                    
-                    const speed = document.getElementById('speed').value
-                // Default options are marked with *
-                const response = await fetch("/predict", {
-                    method: 'POST', 
-                    headers: {
-                    'Content-Type': 'application/json'
-                    
-                    },
-                    body: JSON.stringify({speed}) // body data type must match "Content-Type" header
-                });
-
-                var getres = await response.json();
-                document.getElementById('s').innerHTML=getres.predict[0];
-                
-                //edit so that evrytime the value changes need to get the new value"
-                }
-                document.getElementById("submit-btn").addEventListener("click", postData);
-            </script>
-    </body>
+    <script>
+      //Post request
+      async function postData(error) {
+        //prevent the default action
+        error.preventDefault()
+        //Get speed value passed in from input
+        const speed = document.getElementById('speed').value
+        //Method paramters
+        const response = await fetch('/predict', {
+            //method type
+          method: 'POST',
+          //headers sent
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ speed }), //Stringify speed
+        })
+        //response
+        var getres = await response.json()
+        //predict power 
+        document.getElementById('s').innerHTML = getres.predict[0]
+      }
+      // call postData when this bon (event) is initialised
+      document.getElementById('submit-btn').addEventListener('click', postData)
+    </script>
+   
+  </body>
 </html>

@@ -1,18 +1,15 @@
 FROM python:3.8
 
+WORKDIR /usr/src/app
 
-RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+COPY requirements.txt ./
 
-# We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /app
+COPY . .
 
-RUN pip install -r requirements.txt
+EXPOSE 5000
 
-COPY . /app
+ENV FLASK_APP=web-service.py
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "web-service.py" ]
+CMD flask run --host=0.0.0.0

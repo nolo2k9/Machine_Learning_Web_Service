@@ -14,7 +14,7 @@ input[type=text] {
     margin: 8px 0;
  }
 
-input[type=button], input[type=submit], input[type=reset] {
+.input[type=button], input[type=submit], input[type=reset] {
     background-color: #E64C27;
     border: none;
     color: white;

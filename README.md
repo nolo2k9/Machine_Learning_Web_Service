@@ -34,11 +34,17 @@ python web-service.py
 
 ### How to create Dockerfile
 - When in the project directory
-- **Run:** docker build -t web-service .
+- **Run:** docker build -t web-service.py . 
 
 ### How to run Dockerfile
 - When Docker container has been created run: 
-- **Run docker image:** docker run web-service
+- **Run docker image:** docker run -d -p 5000:5000 web-service.py
+
+### Open Docker
+- Ensure image has been made and is running.
+- Open browser
+- **Go to: ** 127.0.0.1:5000/
+
 ***
 **A bit about Docker:** https://www.docker.com/?utm_source=google&utm_medium=cpc&utm_campaign=dockerhomepage&utm_content=nemea&utm_term=dockerhomepage&utm_budget=growth&gclid=CjwKCAiAudD_BRBXEiwAudakX0q0RQDaFM5vvasyx5Y80I_4oBsdLEM-ZHQ7J-vT7oz4INmMO6ZBehoCEaoQAvD_BwE
 ***
@@ -65,15 +71,25 @@ python web-service.py
 
 ### References
 [1] https://markdown-guide.readthedocs.io/en/latest/basics.html 
+<br />
 [2] https://www.tensorflow.org/
+<br />
 [3] https://www.tensorflow.org/guide/keras/sequential_model
+<br />
 [4] https://www.tensorflow.org/api_docs/python/tf/keras/layers/Layer
+<br />
 [5] https://www.tensorflow.org/resources/models-datasets
+<br />
 [6] https://numpy.org/
+<br />
 [7] https://pandas.pydata.org/
+<br />
 [8] https://scikit-learn.org/stable/
+<br />
 [9] https://matplotlib.org/
+<br />
 [10] https://flask.palletsprojects.com/en/1.1.x/
+<br />
 [11] https://jupyter.org/
 
 [1]: https://markdown-guide.readthedocs.io/en/latest/basics.html 
